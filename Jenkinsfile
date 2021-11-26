@@ -9,10 +9,10 @@ pipeline {
                 echo "$GIT_BRANCH"
             }
         }
-              stage('Docker Build') {
+    stage('Docker Build') {
          steps {
-            pwsh(script: 'docker images -a')
-            pwsh(script: """
+            sh(script: 'docker images -a')
+            sh(script: """
                cd azure-vote/
                docker images -a
                docker build -t jenkins-pipeline .
